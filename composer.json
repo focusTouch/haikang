@@ -1,0 +1,15 @@
+{
+    "name": "lvtu1124/haikang_ic_v1.3",
+    "authors": [
+        {
+            "name": "lvtu",
+            "email": "962567040@qq.com"
+        }
+    ],
+    "require": {
+    	
+    },
+    "autoload": {
+        "psr-4": {"HaiKang\\": "IC_V1.3/"}
+    }
+}
