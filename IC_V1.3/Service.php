@@ -3,6 +3,10 @@ namespace HaiKang;
 
 class Service
 {
+    public function __construct($cid) {
+        $this->config = (Config::getConfig($cid));
+    }
+
     /*
      * 调用海康api接口，统一使用这个方法获取和设置海康接口
      *  $class 可以是类名(绝对命名空间) 或者 对象
@@ -25,7 +29,7 @@ class Service
         if(!$class->getUri($action)){
             return array('succ'=>false,'msg'=>'地址标识错误');
         }
-        $res = (new Tools())->http_post($class);
+        $res = (new Tools($this->config))->http_post($class);
         //对象信息初始化
         $class->selfInit();
         return $res;

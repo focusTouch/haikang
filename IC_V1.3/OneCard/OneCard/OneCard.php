@@ -45,8 +45,8 @@ class OneCard extends ApiBase
         }else{
             $array['resourceInfos'] = $in_data['resourceInfos'];
         }
-        isset($in_data['startTime']) ? $array['startTime'] = $in_data['startTime']:'';
-        isset($in_data['endTime']) ? $array['endTime'] = $in_data['endTime']:'';
+        isset($in_data['startTime']) ? $array['startTime'] = date(DATE_ISO8601,$in_data['startTime']):'';
+        isset($in_data['endTime']) ? $array['endTime'] = date(DATE_ISO8601,$in_data['endTime']):'';
         $this->request_data = $array;
         return true;
     }

@@ -54,12 +54,12 @@ class Door extends ApiBase
         if(!isset($in_data['startTime'])){
             $this->error[] = '事件开始时间必须';
         }else{
-            $array['startTime'] = $in_data['startTime'];
+            $array['startTime'] = date(DATE_ISO8601,$in_data['startTime']);
         }
         if(!isset($in_data['endTime'])){
             $this->error[] = '事件结束时间必须';
         }else{
-            $array['endTime'] = $in_data['endTime'];
+            $array['endTime'] = date(DATE_ISO8601,$in_data['endTime']);
         }
         if(!isset($in_data['pageNo'])){
             $this->error[] = '页码必须';
@@ -294,5 +294,6 @@ class Door extends ApiBase
         $this->request_data = $array;
         return true;
     }
+
 
 }

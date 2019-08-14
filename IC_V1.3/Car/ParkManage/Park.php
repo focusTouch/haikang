@@ -115,8 +115,8 @@ class Park extends ApiBase
         isset($in_data['entranceSyscode']) ? $array['entranceSyscode'] = $in_data['entranceSyscode']:'';
         isset($in_data['plateNo']) ? $array['plateNo'] = $in_data['plateNo']:'';
         isset($in_data['cardNo']) ? $array['cardNo'] = $in_data['cardNo']:'';
-        isset($in_data['startTime']) ? $array['startTime'] = $in_data['startTime']:'';
-        isset($in_data['endTime']) ? $array['endTime'] = $in_data['endTime']:'';
+        isset($in_data['startTime']) ? $array['startTime'] = date(DATE_ISO8601,$in_data['startTime']):'';
+        isset($in_data['endTime']) ? $array['endTime'] = date(DATE_ISO8601,$in_data['endTime']):'';
         isset($in_data['vehicleOut']) ? $array['vehicleOut'] = $in_data['vehicleOut']:'';
         isset($in_data['vehicleType']) ? $array['vehicleType'] = $in_data['vehicleType']:'';
         isset($in_data['releaseResult']) ? $array['releaseResult'] = $in_data['releaseResult']:'';

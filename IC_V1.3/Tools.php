@@ -13,7 +13,7 @@ class Tools
     );
 
     public function __construct($config=array()) {
-        $this->config = $config?:include_once __DIR__.'/config.php';
+        $this->config = $config;
     }
 
     public function http_post($request_obj){
@@ -31,12 +31,14 @@ class Tools
                 'X-Ca-Signature-Headers' => $X_Ca_Signature_Headers
             ]
         ]);
-
         $this->log('$request_obj->request_data');
         $this->log($request_obj->request_data);
         $callback = json_decode($response->getBody()->getContents(),true);
         $this->log('$callback');
         $this->log($callback);
+        if($response->getStatusCode() != 200){
+            return array('succ'=>false,'msg'=>'请求失败!!!');
+        }
         if($callback['code']){
             return array('succ'=>false,'msg'=>Error::getMsg($callback['code']));
         }
